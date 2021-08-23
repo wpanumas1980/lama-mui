@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, InputBase, Toolbar, Typography, Badge, Avatar } from "@material-ui/core";
+import { AppBar, InputBase, Toolbar, Typography, Badge, Avatar, IconButton } from "@material-ui/core";
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import { Search, Mail, Notifications, Cancel } from '@material-ui/icons';
 import { useTheme } from '@material-ui/core/styles';
@@ -56,6 +56,9 @@ const useStyles = makeStyles(theme => ({
   },
   badge: {
     marginRight: theme.spacing(2)
+  },
+  badgeColor:{
+    color:'#fff'
   }
 }));
 
@@ -69,8 +72,7 @@ export default function Navbar() {
   useEffect(() => {
     window.addEventListener("resize", () => { matches && setOpen(false) })
   })
-
-  console.log('matches: ', matches);
+console.log('classes: ', classes.badgeColor);
   return (
     <AppBar>
       <Toolbar className={classes.toolbar}>
@@ -91,9 +93,11 @@ export default function Navbar() {
           <Search className={classes.searchButton}
             onClick={() => setOpen(true)}
           />
-          <Badge badgeContent={4} color="secondary" className={classes.badge}>
-            <Mail />
-          </Badge>
+          <IconButton classes={{root:classes.badgeColor}}>
+            <Badge badgeContent={4} color="secondary">
+              <Mail />
+            </Badge>
+          </IconButton>
           <Badge badgeContent={4} color="secondary" className={classes.badge}>
             <Notifications />
           </Badge>
