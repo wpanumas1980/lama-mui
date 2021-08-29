@@ -74,7 +74,7 @@ export default function Navbar() {
   })
 console.log('classes: ', classes.badgeColor);
   return (
-    <AppBar>
+    <AppBar position="fixed">
       <Toolbar className={classes.toolbar}>
         <Typography variant='h6' className={classes.logoLg}>
           Panumas
